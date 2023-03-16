@@ -1,8 +1,8 @@
 import streamlit as st
 import pickle
 
-with open('model.pickle', 'rb') as f:
-    model = pickle.load(f)
+f=open('model.pickle', 'rb')
+model=pickle.load(f)
 
 def predict_revenue(temperature):
     revenue = model.predict([[temperature]])
