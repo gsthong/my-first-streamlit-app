@@ -1,17 +1,15 @@
 import streamlit as st
 import pickle
-import sklearn
 import numpy as np
 
-model = pickle.load(open("model.pickle", "rb"))
+st.title("Ice Cream Sales Prediction")
 
-st.title('Revenue Prediction')
+f = open('model.pickle', 'rb')
+model = pickle.load(f)
 
-x_new = st.number_input('Input Temperature')
-x_new = np.array(x_new)
-x_new = x_new.reshape(-1,1)
-y_new = model.predict(x_new)
+temperature = st.number_input("Enter temperature (in Celsius)")
+
+revenue = model.predict(np.array(temperature).reshape(-1, 1))
 
 if st. button('Predict'):
-	st.write('Revenue Prediction')
-	st.success(y_new[0][0])
+	st.success(f"Predicted revenue: {revenue[0][0]:.2f} dollars")
