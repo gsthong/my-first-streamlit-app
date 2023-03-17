@@ -7,9 +7,11 @@ st.title("Ice Cream Sales Prediction")
 f = open('model.pickle', 'rb')
 model = pickle.load(f)
 
-temperature = st.number_input("Input Temperature")
+x_new= (np.array(st.number_input("Input Temperature"))).reshape(-1,1)
+# x_new = np.array(x_new)
+# x_new = x_new.reshape(-1,1)
+y_new = model.predict(x_new)
 
-y_new = model.predict(np.array(temperature).reshape(-1, 1))
 
 if st. button('Predict'):
 	st.write('Revenue Prediction')
