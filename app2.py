@@ -12,4 +12,4 @@ temperature = st.number_input("Enter temperature (in Celsius)")
 revenue = model.predict(np.array(temperature).reshape(-1, 1))
 
 if st. button('Predict'):
-	st.success(f"Predicted revenue: {revenue[0][0]:.2f} dollars")
+	st.success(f"Predicted revenue: {y_new[0][0]f}")
